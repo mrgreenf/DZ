@@ -2,22 +2,22 @@ import os
 
 import time
 
-directory = r'C:\Users\GREEN\PycharmProjects\module_6\.venv'
+directory = r'.module_7_5'
 
 for root, dirs, files in os.walk(directory):
+    for file in files:
+        filepath = os.path.join(root, file)
 
-  for file in files:
+        filetime = os.path.getmtime(filepath)
 
-    filepath = os.path.join(root, file)
+        formatted_time = time.strftime("%d.%m.%Y %H:%M", time.localtime(filetime))
 
-    filetime = os.path.getmtime(filepath)
+        filesize = os.path.getsize(filepath)
 
-    formatted_time = time.strftime("%d.%m.%Y %H:%M", time.localtime(filetime))
+        parent_dir = os.path.dirname(filepath)
 
-    filesize = os.path.getsize(filepath)
+        print(
+            f'Обнаружен файл: {file}, Путь: {filepath}, Размер: {filesize} байт, Время изменения: {formatted_time}, Родительская директория: {parent_dir}')
 
-    parent_dir = os.path.dirname(filepath)
-
-    print(f'Обнаружен файл: {file}, Путь: {filepath}, Размер: {filesize} байт, Время изменения: {formatted_time}, Родительская директория: {parent_dir}')
 
 
