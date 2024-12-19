@@ -2,7 +2,7 @@ import os
 
 import time
 
-directory = r'.module_7_5'
+directory = '.'
 
 for root, dirs, files in os.walk(directory):
     for file in files:
